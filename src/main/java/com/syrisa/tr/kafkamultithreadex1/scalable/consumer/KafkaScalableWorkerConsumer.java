@@ -2,6 +2,7 @@ package com.syrisa.tr.kafkamultithreadex1.scalable.consumer;
 
 import com.syrisa.tr.kafkamultithreadex1.common.KafkaObject;
 import com.syrisa.tr.kafkamultithreadex1.common.KafkaProp;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
@@ -17,6 +18,9 @@ public class KafkaScalableWorkerConsumer {
 
     public static void runWorkerConsumer() {
         Properties kafkaProps = KafkaProp.getProducerProp(KafkaObject.CONSUMER);
+        kafkaProps.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, 20);
+        kafkaProps.put(ConsumerConfig.FETCH_MAX_WAIT_MS_CONFIG, 200);
+        kafkaProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(kafkaProps);
 
