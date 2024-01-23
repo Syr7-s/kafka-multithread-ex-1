@@ -16,7 +16,7 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class KafkaScalableConsumer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaMultithreadingStudentProducer.class.getSimpleName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaScalableConsumer.class.getSimpleName());
 
     private KafkaScalableConsumer() {
     }
