@@ -10,7 +10,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import java.util.Properties;
 
 public class KafkaProp {
-    private static final String BOOTSTRAP_SERVERS = "localhost:9092";
+    private static final String BOOTSTRAP_SERVERS = "localhost:9092,localhost:9093,localhost:9094";
 
     public static Properties getProducerProp(KafkaObject kafkaObject){
         Properties properties = new Properties();
@@ -21,7 +21,7 @@ public class KafkaProp {
         }else{
             properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
             properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
-            properties.put(ConsumerConfig.GROUP_ID_CONFIG,"kafka-multithread-ex1");
+            properties.put(ConsumerConfig.GROUP_ID_CONFIG,"kafka-scalable-consumer");
             properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
          //   properties.put("partition.assignment.strategy", RoundRobinAssignor.class.getName());
         }
